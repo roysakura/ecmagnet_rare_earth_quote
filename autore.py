@@ -188,79 +188,79 @@ def auto_gen_quote_pic():
 			draw.text((620,760),str(r18_c),fill=(0,0,0),font=ttfont)
 
 	diff = '-' if r0_c-r0_l==0 else r0_c-r0_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,80),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r1_c-r1_l==0 else r1_c-r1_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,116),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r2_c-r2_l==0 else r2_c-r2_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,156),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r3_c-r3_l==0 else r3_c-r3_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,196),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r4_c-r4_l==0 else r4_c-r4_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,235),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r5_c-r5_l==0 else r5_c-r5_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,270),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r6_c-r6_l==0 else r6_c-r6_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,308),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r7_c-r7_l==0 else r7_c-r7_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,348),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r8_c-r8_l==0 else r8_c-r8_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,385),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r9_c-r9_l==0 else r9_c-r9_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,425),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r10_c-r10_l==0 else r10_c-r10_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,462),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r11_c-r11_l==0 else r11_c-r11_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,500),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r12_c-r12_l==0 else r12_c-r12_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,538),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r13_c-r13_l==0 else r13_c-r13_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,575),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r14_c-r14_l==0 else r14_c-r14_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,610),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r15_c-r15_l==0 else r15_c-r15_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,648),str(diff),fill=fill_c,font=ttfont)
 
 	diff = '-' if r16_c-r16_l==0 else r16_c-r16_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,685),str(diff),fill=fill_c,font=ttfont)
 
-	diff = '-' if r17_c-r17_l==0 else r0_c-r0_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	diff = '-' if r17_c-r17_l==0 else r17_c-r17_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,723),str(diff),fill=fill_c,font=ttfont)
 
-	diff = '-' if r18_c-r18_l==0 else r0_c-r0_l
-	fill_c = (255,0,0) if diff>=0 else (0,255,0)
+	diff = '-' if r18_c-r18_l==0 else r18_c-r18_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,760),str(diff),fill=fill_c,font=ttfont)
 
 	save_filename = u'~/Desktop/%s-稀土报价.png' % (current.strftime('%Y-%m-%d'))
