@@ -6,16 +6,16 @@ import json
 from datetime import datetime, timedelta
 import os
 
+from wechatpy import WeChatClient
+
 def get_quote_json(date):
-	url = 'http://www.ecmagnet.com/magnet/materialquotes/?quote_date=%s' % date.strftime('%Y-%m-%d')
+	url = 'http://www.ecmagnet.com/magnet/materialquoteexact/?quote_date=%s' % date.strftime('%Y-%m-%d')
 	headers = {"User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36","Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"}
   	r = requests.get(url,headers=headers)
   	data = json.loads(r.text)
 
-  	if data['code'] == 200:
-  		return data['data']['detail']
-  	else:
-  		return []
+  	return data['data']['detail']
+
 
 def auto_gen_quote_pic():
 	ttfont = ImageFont.truetype("华文仿宋.ttf",30)
@@ -263,8 +263,14 @@ def auto_gen_quote_pic():
 	fill_c = (255,0,0) if diff>=0 else (0,255,0)
 	draw.text((780,760),str(diff),fill=fill_c,font=ttfont)
 
-	save_filename = u'~/Desktop/%s-稀土报价.png' % (date.strftime('%Y-%m-%d'))
+	save_filename = u'~/Desktop/%s-稀土报价.png' % (current.strftime('%Y-%m-%d'))
 	im.save(os.path.expanduser(save_filename))
+
+	#test_file = u'~/Downloads/000003.gif'
+	#client = WeChatClient('wx62c42eca1fa1c67d', '8ab2a57cf2b04fbd2fb9a6db66eaee95')
+	#client.media.upload('image',open(os.path.expanduser(test_file),'r'))
+
+	
 
 if __name__ == "__main__":
 	auto_gen_quote_pic()
