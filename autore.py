@@ -263,14 +263,15 @@ def auto_gen_quote_pic():
 	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,760),str(diff),fill=fill_c,font=ttfont)
 
-	save_filename = u'~/Desktop/%s-稀土报价.png' % (current.strftime('%Y-%m-%d'))
+	save_filename = u'~/Desktop/%s.png' % (current.strftime('%Y-%m-%d'))
 	im.save(os.path.expanduser(save_filename))
+	#im.close()
 
 	#test_file = u'~/Downloads/000003.gif'
-	#client = WeChatClient('wx62c42eca1fa1c67d', '8ab2a57cf2b04fbd2fb9a6db66eaee95')
-	#client.media.upload('image',open(os.path.expanduser(test_file),'r'))
-
+	client = WeChatClient('wx62c42eca1fa1c67d', '8ab2a57cf2b04fbd2fb9a6db66eaee95')
+	image = client.media.upload('image',open(os.path.expanduser(save_filename),'r'))
 	
+	#print client.message.send_mass_image(None,image['media_id'],True)
 
 if __name__ == "__main__":
 	auto_gen_quote_pic()
