@@ -268,9 +268,26 @@ def auto_gen_quote_pic():
 	#im.close()
 
 	#test_file = u'~/Downloads/000003.gif'
-	#client = WeChatClient('wx62c42eca1fa1c67d', '8ab2a57cf2b04fbd2fb9a6db66eaee95')
-	#image = client.material.add('image',open(os.path.expanduser(save_filename),'r'))
-	#print client.message.send_mass_image(None,image['media_id'],True)
+	client = WeChatClient('wx62c42eca1fa1c67d', '8ab2a57cf2b04fbd2fb9a6db66eaee95')
+	image = client.media.upload_image(open(os.path.expanduser(save_filename),'r'))
+	thumb_image = client.media.upload('image',open('xitu.jpg','r'))
+
+	content = u'<section style="border: 0px none;"><p style="width:100%; text-align:center;"><img style="width:80%;" src="http://mpt.135editor.com/mmbiz_gif/uN1LIav7oJibftHtmYDG3VWhoViagFOpRJkSsXic8a7uuVkDCL6KIORcdZqX0cY5gt8atUGDUAg1lnf3UdrcUYZcQ/0?wx_fmt=gif" data-width="80%"/></p><p style="width: 100%;"><span style="caret-color: red; white-space: pre-wrap;"></span><img src="{0}" alt="xitu.png" style="caret-color: red; white-space: pre-wrap;"/><span style="caret-color: red; white-space: pre-wrap"></span></p><p style="width: 100%"><br/></p><p style="width: 100%">价格如图</p></section>'.format(image)
+	
+	articles = []
+	article = {}
+	article['thumb_media_id'] = thumb_image['media_id']
+	article['title'] = u'%s月%s日,稀土报价' % (current.strftime('%m'),current.strftime('%d'))
+	article['content'] = content
+	article['digest'] = u'价格上涨,点开查看' if r0_c-r0_l >0 else u'点开查看'
+	article['show_cover_pic'] = 1
+
+	articles.append(article)
+
+	article_data = client.media.upload_articles(articles)
+
+	#print image
+	#print client.message.send_mass_image(None,article_data['media_id'],True)
 
 if __name__ == "__main__":
 	auto_gen_quote_pic()
