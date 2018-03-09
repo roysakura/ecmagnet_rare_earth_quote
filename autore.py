@@ -38,7 +38,9 @@ def auto_gen_quote_pic():
 		date = date - timedelta(days=1)
 
 	im = Image.open("re_template.png")
+	#im_nv = Image.open("nvfeb.png")
 	draw = ImageDraw.Draw(im)
+	#draw_nv = ImageDraw.Draw(im_nv)
 
 	r0_l, r0_c = '',''
 	r1_l, r1_c = '',''
@@ -60,6 +62,31 @@ def auto_gen_quote_pic():
 	r17_l, r17_c = '',''
 	r18_l, r18_c = '',''
 	r19_l, r19_c = '',''
+
+	r20_l, r20_c = '',''
+	r21_l, r21_c = '',''
+	r22_l, r22_c = '',''
+	r23_l, r23_c = '',''
+	r24_l, r24_c = '',''
+	r25_l, r25_c = '',''
+	r26_l, r26_c = '',''
+	r27_l, r27_c = '',''
+	r28_l, r28_c = '',''
+	r29_l, r29_c = '',''
+
+	r30_l, r30_c = '',''
+	r31_l, r31_c = '',''
+	r32_l, r32_c = '',''
+	r33_l, r33_c = '',''
+	r34_l, r34_c = '',''
+	r35_l, r35_c = '',''
+	r36_l, r36_c = '',''
+	r37_l, r37_c = '',''
+	r38_l, r38_c = '',''
+	r39_l, r39_c = '',''
+
+	r40_l, r40_c = '',''
+
 
 	draw.text((308,0),current.strftime('%m-%d'),fill=(255,255,255),font=ttfont_title)
 	draw.text((442,40),last.strftime('%m-%d'),fill=(0,0,0),font=ttfont_title)
@@ -126,6 +153,8 @@ def auto_gen_quote_pic():
 		elif m['name'] == u'镝铁' and r18_l =='':
 			r18_l = int(m['avg_quote'])
 			draw.text((445,760),str(r18_l),fill=(0,0,0),font=ttfont)
+		
+
 
 
 	for m in mc_current:
@@ -186,6 +215,7 @@ def auto_gen_quote_pic():
 		elif m['name'] == u'镝铁' and r18_c=='':
 			r18_c = int(m['avg_quote'])
 			draw.text((620,760),str(r18_c),fill=(0,0,0),font=ttfont)
+		
 
 	diff = '-' if r0_c-r0_l==0 else r0_c-r0_l
 	fill_c = (255,0,0) if diff>=0 else (22,163,43)
@@ -264,10 +294,11 @@ def auto_gen_quote_pic():
 	draw.text((780,760),str(diff),fill=fill_c,font=ttfont)
 
 	save_filename = u'~/Desktop/%s.png' % (current.strftime('%Y-%m-%d'))
+
 	im.save(os.path.expanduser(save_filename))
 	#im.close()
 
-	#test_file = u'~/Downloads/000003.gif'
+
 	client = WeChatClient('wx62c42eca1fa1c67d', '8ab2a57cf2b04fbd2fb9a6db66eaee95')
 	image = client.media.upload_image(open(os.path.expanduser(save_filename),'r'))
 	follow_image = client.media.upload_image(open('follow.gif','r'))
@@ -294,5 +325,216 @@ if __name__ == "__main__":
 	auto_gen_quote_pic()
 
 
+'''
+elif m['name'] == u'N38':
+			r20_l = int(m['avg_quote'])
+			draw_nv.text((645,105),str(r20_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N40':
+			r21_l = int(m['avg_quote'])
+			draw_nv.text((645,130),str(r21_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N42':
+			r22_l = int(m['avg_quote'])
+			draw_nv.text((645,155),str(r22_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N45':
+			r23_l = int(m['avg_quote'])
+			draw_nv.text((645,180),str(r23_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N48':
+			r24_l = int(m['avg_quote'])
+			draw_nv.text((645,205),str(r24_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N50':
+			r25_l = int(m['avg_quote'])
+			draw_nv.text((645,230),str(r25_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N35M':
+			r26_l = int(m['avg_quote'])
+			draw_nv.text((645,255),str(r26_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N38M':
+			r27_l = int(m['avg_quote'])
+			draw_nv.text((645,280),str(r27_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N40M':
+			r28_l = int(m['avg_quote'])
+			draw_nv.text((645,305),str(r28_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N42M':
+			r29_l = int(m['avg_quote'])
+			draw_nv.text((645,330),str(r29_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N45M':
+			r30_l = int(m['avg_quote'])
+			draw_nv.text((645,355),str(r30_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N48M':
+			r31_l = int(m['avg_quote'])
+			draw_nv.text((645,380),str(r31_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N50M':
+			r32_l = int(m['avg_quote'])
+			draw_nv.text((645,405),str(r32_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N35H':
+			r33_l = int(m['avg_quote'])
+			draw_nv.text((645,430),str(r33_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N38H':
+			r34_l = int(m['avg_quote'])
+			draw_nv.text((645,455),str(r34_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N40H':
+			r35_l = int(m['avg_quote'])
+			draw_nv.text((645,480),str(r35_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N42H':
+			r36_l = int(m['avg_quote'])
+			draw_nv.text((645,505),str(r36_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N45H':
+			r37_l = int(m['avg_quote'])
+			draw_nv.text((645,530),str(r37_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N48H':
+			r38_l = int(m['avg_quote'])
+			draw_nv.text((645,550),str(r38_l),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N50H':
+			r39_l = int(m['avg_quote'])
+			draw_nv.text((645,580),str(r39_l),fill=(0,0,0),font=ttfont)
 
+elif m['name'] == u'N35':
+			r19_c = int(m['avg_quote'])
+			draw_nv.text((788,80),str(r19_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N38':
+			r20_c = int(m['avg_quote'])
+			draw_nv.text((788,105),str(r20_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N40':
+			r21_c = int(m['avg_quote'])
+			draw_nv.text((788,130),str(r21_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N42':
+			r22_c = int(m['avg_quote'])
+			draw_nv.text((788,155),str(r22_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N45':
+			r23_c = int(m['avg_quote'])
+			draw_nv.text((788,180),str(r23_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N48':
+			r24_c = int(m['avg_quote'])
+			draw_nv.text((788,205),str(r24_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N50':
+			r25_c = int(m['avg_quote'])
+			draw_nv.text((788,230),str(r25_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N35M':
+			r26_c = int(m['avg_quote'])
+			draw_nv.text((788,255),str(r26_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N38M':
+			r27_c = int(m['avg_quote'])
+			draw_nv.text((788,280),str(r27_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N40M':
+			r28_c = int(m['avg_quote'])
+			draw_nv.text((788,305),str(r28_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N42M':
+			r29_c = int(m['avg_quote'])
+			draw_nv.text((788,330),str(r29_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N45M':
+			r30_c = int(m['avg_quote'])
+			draw_nv.text((788,355),str(r30_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N48M':
+			r31_c = int(m['avg_quote'])
+			draw_nv.text((788,380),str(r31_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N50M':
+			r32_c = int(m['avg_quote'])
+			draw_nv.text((788,405),str(r32_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N35H':
+			r33_c = int(m['avg_quote'])
+			draw_nv.text((788,430),str(r33_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N38H':
+			r34_c = int(m['avg_quote'])
+			draw_nv.text((788,455),str(r34_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N40H':
+			r35_c = int(m['avg_quote'])
+			draw_nv.text((788,480),str(r35_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N42H':
+			r36_c = int(m['avg_quote'])
+			draw_nv.text((788,505),str(r36_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N45H':
+			r37_c = int(m['avg_quote'])
+			draw_nv.text((788,530),str(r37_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N48H':
+			r38_c = int(m['avg_quote'])
+			draw_nv.text((788,550),str(r38_c),fill=(0,0,0),font=ttfont)
+		elif m['name'] == u'N50H':
+			r39_c = int(m['avg_quote'])
+			draw_nv.text((788,580),str(r39_c),fill=(0,0,0),font=ttfont)
+
+diff = '-' if r19_c-r19_l==0 else r19_c-r19_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,80),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r20_c-r20_l==0 else r20_c-r20_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,105),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r21_c-r21_l==0 else r21_c-r21_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,130),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r22_c-r22_l==0 else r22_c-r22_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,155),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r23_c-r23_l==0 else r23_c-r23_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,180),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r24_c-r24_l==0 else r24_c-r24_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,205),str(diff),fill=fill_c,font=ttfont)
+
+
+	diff = '-' if r25_c-r25_l==0 else r25_c-r25_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,230),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r26_c-r26_l==0 else r26_c-r26_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,255),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r27_c-r27_l==0 else r27_c-r27_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,280),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r28_c-r28_l==0 else r28_c-r28_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,305),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r29_c-r29_l==0 else r29_c-r29_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,330),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r30_c-r30_l==0 else r30_c-r30_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,355),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r31_c-r31_l==0 else r31_c-r31_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,380),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r32_c-r32_l==0 else r32_c-r32_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,405),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r33_c-r33_l==0 else r33_c-r33_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,430),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r34_c-r34_l==0 else r34_c-r34_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,455),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r35_c-r35_l==0 else r35_c-r35_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,480),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r36_c-r36_l==0 else r36_c-r36_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,505),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r37_c-r37_l==0 else r37_c-r37_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,530),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r38_c-r38_l==0 else r38_c-r38_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,555),str(diff),fill=fill_c,font=ttfont)
+
+	diff = '-' if r39_c-r39_l==0 else r39_c-r39_l
+	fill_c = (255,0,0) if diff>=0 else (22,163,43)
+	draw_nv.text((938,570),str(diff),fill=fill_c,font=ttfont)
+
+'''
 
