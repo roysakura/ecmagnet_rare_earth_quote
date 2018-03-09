@@ -270,10 +270,11 @@ def auto_gen_quote_pic():
 	#test_file = u'~/Downloads/000003.gif'
 	client = WeChatClient('wx62c42eca1fa1c67d', '8ab2a57cf2b04fbd2fb9a6db66eaee95')
 	image = client.media.upload_image(open(os.path.expanduser(save_filename),'r'))
+	follow_image = client.media.upload_image(open('follow.gif','r'))
 	thumb_image = client.media.upload('image',open('xitu.jpg','r'))
-
-	content = u'<section style="border: 0px none;"><p style="width:100%; text-align:center;"><img style="width:80%;" src="http://mpt.135editor.com/mmbiz_gif/uN1LIav7oJibftHtmYDG3VWhoViagFOpRJkSsXic8a7uuVkDCL6KIORcdZqX0cY5gt8atUGDUAg1lnf3UdrcUYZcQ/0?wx_fmt=gif" data-width="80%"/></p><p style="width: 100%;"><span style="caret-color: red; white-space: pre-wrap;"></span><img src="{0}" alt="xitu.png" style="caret-color: red; white-space: pre-wrap;"/><span style="caret-color: red; white-space: pre-wrap"></span></p><p style="width: 100%"><br/></p><p style="width: 100%">价格如图</p></section>'.format(image)
 	
+	content = u'<section style="border: 0px none;"><p style="width:100%; text-align:center;"><img style="width:80%;" src="{0}" data-width="80%"/></p><p style="width: 100%;"><span style="caret-color: red; white-space: pre-wrap;"></span><img src="{1}" alt="xitu.png" style="caret-color: red; white-space: pre-wrap;"/><span style="caret-color: red; white-space: pre-wrap"></span></p><p style="width: 100%"><br/></p><p style="width: 100%">价格如图</p></section>'.format(follow_image,image)
+	 
 	articles = []
 	article = {}
 	article['thumb_media_id'] = thumb_image['media_id']
