@@ -280,7 +280,7 @@ def auto_gen_quote_pic():
 	article['title'] = u'%s月%s日,稀土报价' % (current.strftime('%m'),current.strftime('%d'))
 	article['content'] = content
 	article['digest'] = u'价格上涨,点开查看' if r0_c-r0_l >0 else u'点开查看'
-	article['show_cover_pic'] = 1
+	article['show_cover_pic'] = 0
 
 	articles.append(article)
 
