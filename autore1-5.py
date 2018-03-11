@@ -271,8 +271,8 @@ def auto_gen_quote_pic():
 	fill_c = (255,0,0) if diff>=0 else (22,163,43)
 	draw.text((780,760),str(diff),fill=fill_c,font=ttfont)
 
-	save_filename = u'~/Desktop/%s.png' % (current.strftime('%Y-%m-%d'))
-	im.save(os.path.expanduser(save_filename))
+	save_filename = u'xt.png'
+	im.save(save_filename)
 
 	client = WeChatClient('wx62c42eca1fa1c67d', '8ab2a57cf2b04fbd2fb9a6db66eaee95')
 	image = client.media.upload_image(open(os.path.expanduser(save_filename),'r'))
@@ -281,7 +281,6 @@ def auto_gen_quote_pic():
 	quote_image = client.media.upload_image(open('quote.png','r'))
 	thumb_image = client.media.upload('image',open('xitu.jpg','r'))
 	
-	 
 	articles = []
 	
 	news_datas = get_news_json()
