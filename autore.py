@@ -5,6 +5,7 @@ import requests
 import json
 from datetime import datetime, timedelta
 import os
+import lxml.html as LH
 
 from wechatpy import WeChatClient
 
@@ -282,13 +283,12 @@ def auto_gen_quote_pic():
 	
 	 
 	articles = []
-	article = {}
-
+	
 	news_datas = get_news_json()
 	i = 0
 	for category in [u'稀土',u'磁材',u'无线充电']:
+		article = {}
 		keywords = news_datas['data']['detail'][i]['article_keywords']
-		print category
 		while keywords.find(category) == -1:
 			i+=1
 			if i==10:
@@ -307,6 +307,16 @@ def auto_gen_quote_pic():
 		article['show_cover_pic'] = 0
 		header = '<section style="border: 0px none;"><p style="width:100%; text-align:center;"><img style="width:80%;" src="{0}" data-width="80%"/></p>'.format(follow_image)
 		body = news_datas['data']['detail'][i]['article_content']
+
+		doc = LH.fromstring(body)
+		images = doc.xpath('//img/@src')
+		for image in images:
+			r = requests.get(image,stream=True)
+			open('temp.jpg','wb').write(r.content)
+			temp_image = client.media.upload_image(open('temp.jpg','r'))
+			body = body.replace(image,temp_image)
+
+
 		body = body.replace('<p>','<p style="margin-left: 10px; margin-right: 10px; margin-top: 25px;"><span style="font-family: arial, helvetica, sans-serif; color: #3F3F3F;">')
 		body = body.replace('</p>','</span></p>')
 		body = body.replace('<h1>',u'<section class="_135editor" data-tools="135编辑器" data-id="91641" style="border: 0px none;"> <section style="width:100%; text-align:center; margin-top:10px;" data-width="100%"> <section style="display:inline-block;"> <section style="width:100%; display:flex; display:-webkit-flex;" data-width="100%"> <section style="width:35px; background-color:#fefefe; margin-right:-35px; margin-top:-10px;"> <section style="width:30px;"> <img style="vertical-align:middle; width:100%;" src="{0}" data-width="100%"/> </section> </section> <section style="width:100%;" data-width="100%"> <section style="padding-left:35px;"> <section style="width:100%; height:10px; border-top:solid 3px #333; border-right:solid 3px #333;" data-width="100%"></section> </section> </section> </section> <section style="padding:0px 30px; margin-top:-11px;" class="135brush" data-brushtype="text">'.format(h1_image))
@@ -326,8 +336,7 @@ def auto_gen_quote_pic():
 	article['digest'] = u'价格上涨,点开查看' if r0_c-r0_l >0 else u'点开查看'
 	article['show_cover_pic'] = 0
 
-	#articles.append(article)
-
+	articles.append(article)
 	#article_data = client.media.upload_articles(articles)
 
 	#print image
