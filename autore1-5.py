@@ -369,7 +369,7 @@ def auto_gen_quote_pic():
 	articles.append(article)
 	article_data = client.media.upload_articles(articles)
 
-	print client.message.send_mass_article(None,article_data['media_id'],True)
+	#print client.message.send_mass_article(None,article_data['media_id'],True)
 
 if __name__ == "__main__":
 	auto_gen_quote_pic()
