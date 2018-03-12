@@ -53,9 +53,12 @@ def auto_gen_quote_pic():
 			i=0
 			continue
 
-		r = requests.get(news_datas['data']['detail'][i]['article_thumbnail'],stream=True)
-		open('temp.jpg','wb').write(r.content)
-		news_thumb_image = client.media.upload('image',open('temp.jpg','r'))
+		if len(news_datas['data']['detail'][i]['article_thumbnail']) > 0:
+			r = requests.get(news_datas['data']['detail'][i]['article_thumbnail'],stream=True)
+			open('temp.jpg','wb').write(r.content)
+			news_thumb_image = client.media.upload('image',open('temp.jpg','r'))
+		else:
+			news_thumb_image = client.media.upload('image',open('default-thumb.jpg','r'))
 		article['thumb_media_id'] = news_thumb_image['media_id']
 		article['title'] = news_datas['data']['detail'][i]['article_title']
 		article['digest'] =  news_datas['data']['detail'][i]['article_abstract']
