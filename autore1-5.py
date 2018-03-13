@@ -337,7 +337,7 @@ def auto_gen_quote_pic():
 
 		article['thumb_media_id'] = news_thumb_image['media_id']
 		article['title'] = news_datas['data']['detail'][i]['article_title']
-		article['digest'] =  news_datas['data']['detail'][i]['article_abstract']
+		article['digest'] =  news_datas['data']['detail'][i]['article_abstract'][:100]
 		article['show_cover_pic'] = 0
 		header = '<section style="border: 0px none;"><p style="width:100%; text-align:center;"><img style="width:80%;" src="{0}" data-width="80%"/></p>'.format(follow_image)
 		body = news_datas['data']['detail'][i]['article_content']
