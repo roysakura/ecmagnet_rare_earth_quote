@@ -26,8 +26,8 @@ def get_news_json():
 	return data
 
 def auto_gen_quote_pic():
-	ttfont = ImageFont.truetype("hwfs.ttf",30)
-	ttfont_title = ImageFont.truetype("hwfs.ttf",30)
+	ttfont = ImageFont.truetype("/var/workspace/ecmagnet_rare_earth_quote/hwfs.ttf",30)
+	ttfont_title = ImageFont.truetype("/var/workspace/ecmagnet_rare_earth_quote/hwfs.ttf",30)
 	date = datetime.today()
 
 	mc_current,mq_last = [],[]
