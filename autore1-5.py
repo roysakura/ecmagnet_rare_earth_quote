@@ -305,7 +305,7 @@ def auto_gen_quote_pic():
 	im.save(save_filename)
 
 	client = WeChatClient('wx62c42eca1fa1c67d', '8ab2a57cf2b04fbd2fb9a6db66eaee95')
-	image = client.media.upload_image(open(os.path.expanduser(save_filename),'r'))
+	xtimage = client.media.upload_image(open((save_filename),'r'))
 	follow_image = client.media.upload_image(open('follow.gif','r'))
 	h1_image = client.media.upload_image(open('h1.gif','r'))
 	quote_image = client.media.upload_image(open('quote.png','r'))
@@ -364,7 +364,7 @@ def auto_gen_quote_pic():
 		i+=1
 
 	article = {}
-	content = u'<section style="border: 0px none;"><p style="width:100%; text-align:center;"><img style="width:80%;" src="{0}" data-width="80%"/></p><p style="width: 100%;"><span style="caret-color: red; white-space: pre-wrap;"></span><img src="{1}" alt="xitu.png" style="caret-color: red; white-space: pre-wrap;"/><span style="caret-color: red; white-space: pre-wrap"></span></p><p style="width: 100%"><br/></p><p style="width: 100%">价格如图</p></section>'.format(follow_image,image)
+	content = u'<section style="border: 0px none;"><p style="width:100%; text-align:center;"><img style="width:80%;" src="{0}" data-width="80%"/></p><p style="width: 100%;"><span style="caret-color: red; white-space: pre-wrap;"></span><img src="{1}" alt="xitu.png" style="caret-color: red; white-space: pre-wrap;"/><span style="caret-color: red; white-space: pre-wrap"></span></p><p style="width: 100%"><br/></p><p style="width: 100%">价格如图</p></section>'.format(follow_image,xtimage)
 	article['thumb_media_id'] = thumb_image['media_id']
 	article['title'] = u'%s月%s日,稀土报价' % (current.strftime('%m'),current.strftime('%d'))
 	article['content'] = content
