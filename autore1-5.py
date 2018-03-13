@@ -26,8 +26,8 @@ def get_news_json():
 	return data
 
 def auto_gen_quote_pic():
-	ttfont = ImageFont.truetype("华文仿宋.ttf",30)
-	ttfont_title = ImageFont.truetype("华文仿宋.ttf",30)
+	ttfont = ImageFont.truetype("hwfs.ttf",30)
+	ttfont_title = ImageFont.truetype("hwfs.ttf",30)
 	date = datetime.today()
 
 	mc_current,mq_last = [],[]
@@ -328,6 +328,7 @@ def auto_gen_quote_pic():
 			continue
 
 		if len(news_datas['data']['detail'][i]['article_thumbnail']) > 0:
+			print news_datas['data']['detail'][i]['article_thumbnail']
 			r = requests.get(news_datas['data']['detail'][i]['article_thumbnail'],stream=True)
 			open('temp.jpg','wb').write(r.content)
 			news_thumb_image = client.media.upload('image',open('temp.jpg','r'))
