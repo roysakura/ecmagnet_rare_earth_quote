@@ -315,7 +315,7 @@ def auto_gen_quote_pic():
 	
 	news_datas = get_news_json()
 	i = 0
-	for category in [u'磁材',u'磁材']:
+	for category in [u'磁材',u'磁材',u'永磁']:
 		article = {}
 		keywords = news_datas['data']['detail'][i]['article_keywords']
 		while keywords.find(category) == -1:
