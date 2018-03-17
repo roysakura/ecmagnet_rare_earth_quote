@@ -40,18 +40,8 @@ def auto_gen_quote_pic():
 	articles = []
 	
 	news_datas = get_news_json()
-	i = 0
-	for category in [u'磁材',u'永磁',u'磁材',u'永磁',u'磁材']:
+	for i in range(0,3):
 		article = {}
-		keywords = news_datas['data']['detail'][i]['article_keywords']
-		while keywords.find(category) == -1:
-			i+=1
-			if i==10:
-				break
-			keywords = news_datas['data']['detail'][i]['article_keywords']
-		if i==10:
-			i=0
-			continue
 
 		if len(news_datas['data']['detail'][i]['article_thumbnail']) > 0:
 			r = requests.get(news_datas['data']['detail'][i]['article_thumbnail'],stream=True)
@@ -85,7 +75,6 @@ def auto_gen_quote_pic():
 		article['content'] = content
 		
 		articles.append(article)
-		i+=1
 
 	article_data = client.media.upload_articles(articles)
 
